@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits } from "discord.js"
+import { Client, GatewayIntentBits, Collection } from "discord.js"
 import { readdirSync } from "fs"
 import { pathToFileURL, fileURLToPath } from "url"
 import "dotenv/config"

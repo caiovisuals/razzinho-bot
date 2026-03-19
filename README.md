@@ -25,9 +25,6 @@ Bot do Discord pro servidor World of Razzar! Feito com muita dedicação pro meu
 - **[discord.js] - ^14.14.1
 - **[dotenv] - ^16.4.5
 - **[nodemon] - ^3.1.14
-- **[fs] - ^0.0.1-security
-- **[path] - ^0.12.7
-- **[url] - ^0.11.4
 
 by caiothevisual
 #caiobavisuals #discord #bot #razzar #javascript
