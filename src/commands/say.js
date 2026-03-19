@@ -2,7 +2,11 @@ export default {
     name: "say",
     description: "Repete o que você escrever",
     async execute(message) {
-        const texto = message.content.slice(PREFIX.length + message.content.slice(PREFIX.length).trim().split(/\s+/)[0].length).trim()
+        const texto = message.content
+            .slice(PREFIX.length)
+            .trim()
+            .slice(args[0]?.length || 0)
+            .trim()
 
         const attachments = Array.from(message.attachments.values())
 
