@@ -9,6 +9,7 @@ Bot do Discord pro servidor World of Razzar! Feito com muita dedicação pro meu
 | `!ping` | Mostra a latência do bot e da API do Discord |
 | `!sorteio` | Sorteia um membro aleatório do servidor |
 | `!frasedodia` | Envia uma frase motivacional aleatória |
+| `!say` | Repetir a mensagem que o usuário escrever |
 | `!help` | Lista todos os comandos disponíveis |
 
 ## Objetivo
