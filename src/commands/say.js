@@ -4,9 +4,11 @@ export default {
     async execute(message, args) {
         const texto = args.join(" ")
 
-        const attachments = message.attachments.map(att => att.url)
+        const attachments = Array.from(message.attachments.values())
 
-        if (!texto && attachments.length === 0) {
+        const imagens = attachments.filter(att => att.contentType?.startsWith("image"))
+
+        if (!texto && imagens.length === 0) {
             return message.reply({
                 embeds: [{
                     color: 0xff4444,
@@ -17,12 +19,12 @@ export default {
 
         await message.delete().catch(() => {})
 
-        if (attachments.length > 0) {
+        if (imagens.length > 0) {
             return message.channel.send({
-                content: texto || null,
+                content: texto || undefined,
                 embeds: [{
                     image: {
-                        url: attachments[0]
+                        url: imagens[0].url
                     }
                 }]
             })
