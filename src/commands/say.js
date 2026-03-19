@@ -6,7 +6,9 @@ export default {
 
         const attachments = Array.from(message.attachments.values())
 
-        const imagens = attachments.filter(att => att.contentType?.startsWith("image"))
+        const imagens = attachments.filter(att =>
+            att.url.match(/\.(png|jpg|jpeg|gif|webp)$/i)
+        )
 
         if (!texto && imagens.length === 0) {
             return message.reply({
@@ -21,12 +23,9 @@ export default {
 
         if (imagens.length > 0) {
             return message.channel.send({
-                content: texto || undefined,
-                embeds: [{
-                    image: {
-                        url: imagens[0].url
-                    }
-                }]
+                content: texto
+                    ? `${texto}\n${imagens[0].url}`
+                    : imagens[0].url
             })
         }
 
