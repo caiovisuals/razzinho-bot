@@ -1,7 +1,7 @@
 export default {
     name: "say",
     description: "Repete o que você escrever",
-    async execute(message) {
+    async execute(message, args) {
         const texto = message.content
             .slice(PREFIX.length)
             .trim()
