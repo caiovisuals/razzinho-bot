@@ -23,6 +23,12 @@ const commandFiles = readdirSync(commandsPath).filter(f => f.endsWith(".js"))
 client.once("ready", () => {
     client.user.setPresence({
         status: "idle",
+        activities: [
+            {
+                name: "real trap meu manos!+++ 😎",
+                type: 2,
+            }
+        ]
     })
 
     console.log(`Logado como ${client.user.tag}`)
