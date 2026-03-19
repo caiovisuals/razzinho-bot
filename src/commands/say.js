@@ -1,5 +1,3 @@
-import { COR_PADRAO } from "../config/config.js"
-
 export default {
     name: "say",
     description: "Repete o que você escrever",
@@ -19,9 +17,19 @@ export default {
 
         await message.delete().catch(() => {})
 
+        if (attachments.length > 0) {
+            return message.channel.send({
+                content: texto || null,
+                embeds: [{
+                    image: {
+                        url: attachments[0]
+                    }
+                }]
+            })
+        }
+
         message.channel.send({
-            content: texto || null,
-            files: attachments
+            content: texto || null
         })
     }
 }
