@@ -21,6 +21,10 @@ const commandsPath = join(__dirname, "commands")
 const commandFiles = readdirSync(commandsPath).filter(f => f.endsWith(".js"))
 
 client.once("ready", () => {
+    client.user.setPresence({
+        status: "idle",
+    })
+
     console.log(`Logado como ${client.user.tag}`)
     console.log(`📌 Prefixo: ${PREFIX}`)
     console.log(`🗂️  ${client.commands.size} comando(s) disponível(is)\n`)
