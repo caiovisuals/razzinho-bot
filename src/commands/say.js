@@ -1,8 +1,10 @@
+import { PREFIX } from "../config/config.js"
+
 export default {
     name: "say",
     description: "Repete o que você escrever",
     async execute(message) {
-       const texto = message.content.slice(message.content.indexOf(" ") + 1)
+        const texto = message.content.slice(PREFIX.length + "say ".length).trim()
 
         const attachments = Array.from(message.attachments.values())
 
