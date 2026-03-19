@@ -6,11 +6,13 @@ export default {
     async execute(message, args) {
         const texto = args.join(" ")
 
-        if (!texto) {
+        const attachments = message.attachments.map(att => att.url)
+
+        if (!texto && attachments.length === 0) {
             return message.reply({
                 embeds: [{
                     color: 0xff4444,
-                    description: "❌ Escreve algo depois do comando! Ex: `!rsay olá mundo`"
+                    description: "❌ Escreva algo ou envie uma imagem depois do comando! Ex: `!rsay Olá Mundo`"
                 }]
             })
         }
@@ -18,11 +20,8 @@ export default {
         await message.delete().catch(() => {})
 
         message.channel.send({
-            embeds: [{
-                color: COR_PADRAO,
-                description: `💬 ${texto}`,
-                footer: { text: `Pedido por ${message.author.username}` }
-            }]
+            content: texto || null,
+            files: attachments
         })
     }
 }
